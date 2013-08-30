@@ -1,8 +1,6 @@
 <h1>Bloghawker</h1>
-
-<form action="/new_post" method="POST">
-  <label>Title<input type="text" name = "post[title]"></label>
-  <label>Content<textarea class="content-box" name="post[content]"></textarea></label>
-  <label>Tags<input type="text" name = "post[tags]"></input></label>
-  <input type="submit" value="Submit">
-</form>
+<h2><a href="/new">Create New</a></h2>
+<h2>Popular Posts:</h2>
+<% Post.order("count DESC").limit(10).each do |post| %>
+<a href="/posts/<%=post.id%>"><%=post.title%></a><br>
+<% end %>

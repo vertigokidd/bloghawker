@@ -1,6 +1,9 @@
+<p>Title:</p>
+<%=@post.title%>
 <p>Content:</p>
 <%=@post.content%>
 <p>Tags:</p>
 <%@post.tags.each do |tag|%>
-<%=tag.name%><br>
+<a href="/tags/<%=tag.name%>"><%=tag.name%></a><br>
 <%end%>
+<h3><a href="/">Home</a></h3>

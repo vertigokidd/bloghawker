@@ -5,8 +5,13 @@ get '/' do
   erb :index
 end
 
+get '/new' do
+  erb :new
+end
+
 get '/posts/:post_id' do
   @post = Post.find_by_id(params[:post_id])
+  @post.increment_view_count
   erb :post
 end
 

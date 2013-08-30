@@ -5,7 +5,11 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
-  # Remember to create a migration!
+  def increment_view_count
+    count = self.count
+    count += 1
+    self.update_attributes(count: count)
+  end
 
   def tags=(tags)
     tag_array = tags.split(",")
